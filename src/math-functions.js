@@ -70,10 +70,8 @@ export function sumAndMultiplyThreeNumbers(a, b, c) { //eslint-disable-line
 
 /////////////////////////////////////
 /* Problem 4
-Write a function called sumArrayWithThreeNumbers() that takes in an array of numbers 
-as its single argument and then returns an array where the first element is the sum 
-of the numbers in the array, and the second element is a string that EXACTLY follows 
-this example and uses the values that were input into the function:
+
+Write a function called sumArrayWithThreeNumbers() that takes in an array of numbers as its single argument and then returns an array where the first element is the sum of the numbers in the array, and the second element is a string that EXACTLY follows this example and uses the values that were input into the function:
 
 "2,3,4 was passed in as an array of numbers, and 9 is their sum."
 
@@ -84,7 +82,10 @@ to use the + operator for string concatenation.
 */
 
 export function sumArrayWithThreeNumbers(sumArr) {
-
+    const sumArray = sum(sum(sumArr[0], sumArr[1])[0], sumArr[2])[0];
+    const str = `${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${sumArray} is their sum.`;
+    
+    return [sumArray, str];
 }
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
