@@ -83,7 +83,7 @@ to use the + operator for string concatenation.
 
 export function sumArrayWithThreeNumbers(sumArr) {
     const sumArray = sum(sum(sumArr[0], sumArr[1])[0], sumArr[2])[0];
-    const str = `${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${sumArray} is their sum.`;
+    const str = `${sumArr} was passed in as an array of numbers, and ${sumArray} is their sum.`;
     
     return [sumArray, str];
 }
@@ -109,7 +109,7 @@ you may continue to use the + operator for string concatenation.
 
 export function multiplyArrayWithThreeNumbers(multArr) { //eslint-disable-line
     const prodArray = multiply(multiply(multArr[0], multArr[1])[0], multArr[2])[0];
-    const str = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${prodArray}.`;
+    const str = `The numbers ${multArr} have a product of ${prodArray}.`;
     
     return [prodArray, str];
 }
@@ -132,7 +132,17 @@ This function should be dynamic, accepting an array of any length.
 */
 
 export function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+    let prodArray = 1;
+    let strArray = [];
     
+    for(let num of dynamicArray){
+        prodArray = multiply(num, prodArray)[0];
+        strArray.push(num); 
+    }
+    
+    const str = `The numbers ${strArray} have a product of ${prodArray}.`;
+
+    return [prodArray, str];
 }
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
